@@ -1,6 +1,5 @@
 const http = require('http');
 const app = require('./app');
-const reponse = await fetch('http://localhost:5678/api/works')
 
 const normalizePort = val => {
 	const port = parseInt(val, 10);
@@ -46,4 +45,3 @@ server.on('listening', () => {
 });
 
 server.listen(port);
-
