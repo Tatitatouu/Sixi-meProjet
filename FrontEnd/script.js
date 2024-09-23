@@ -75,3 +75,4 @@ function displayCategories(categories) {
 
 fetchData();
 fetchCategories();
+
