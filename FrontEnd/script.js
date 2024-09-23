@@ -1,12 +1,12 @@
+let allWorks = [];
+
 async function fetchData() {
     try {
         const response = await fetch('http://localhost:5678/api/works');
-        const data = await response.json();
-
-        console.log('Données reçues des travaux :', data); 
+        allWorks = await response.json(); 
         
-        displayWorks(data); 
-        setupCategoryFilters(data);
+        displayWorks(allWorks); 
+        fetchCategories();
     } catch (error) {
         console.error('Erreur lors de la récupération des travaux :', error);
     }
@@ -40,9 +40,6 @@ async function fetchCategories() {
         });
   
         const categories = await response.json(); 
-        
-        console.log('Données reçues des catégories :', categories); 
-
         displayCategories(categories); 
         
     } catch (error) {
@@ -52,12 +49,14 @@ async function fetchCategories() {
   
 function displayCategories(categories) {
     const categoriesContainer = document.querySelector('.categories');
-  
     categoriesContainer.innerHTML = '';
   
     const allCategoryElement = document.createElement('div');
     allCategoryElement.classList.add('category-item');
     allCategoryElement.innerHTML = `<h4>Tous</h4>`;
+    allCategoryElement.addEventListener('click', () => {
+        displayWorks(allWorks);
+    })
     categoriesContainer.appendChild(allCategoryElement);
   
     categories.forEach(category => {
@@ -65,9 +64,14 @@ function displayCategories(categories) {
         categoryElement.classList.add('category-item');
         categoryElement.innerHTML = `<h4>${category.name}</h4>`;
         categoriesContainer.appendChild(categoryElement);
+
+        categoryElement.addEventListener(`click`, () => {
+            const filtrerWorks = allWorks.filter (work => work.categoryId === category.id);
+            displayWorks(filtrerWorks);
+        });
+        categoriesContainer.appendChild(categoryElement);
     });
 }
 
 fetchData();
 fetchCategories();
-

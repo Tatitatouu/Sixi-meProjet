@@ -146,6 +146,11 @@ li:hover {
     border-radius: 60px;
 }
 
+.login {
+	cursor: pointer;
+	font-weight: bold;
+}
+
 .categories h4:hover {
 	background-color: #1D6154;
     color: white;
