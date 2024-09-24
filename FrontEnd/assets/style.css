@@ -282,8 +282,8 @@ label[for="password"], label[for="email"] {
 .categories, .btn-filter {
 	display: flex;
     justify-content: center;
-    margin-bottom: 51px;
-    gap: 10px;
+	margin: 3em 0 3em 0;    
+	gap: 10px;
 }
 .categories h4, .btn-filter {
 	border: 1px solid #1D6154;
