@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const data = await response.json();
 
             localStorage.setItem('token', data.token); 
-            window.location.href = 'index.html'; 
+            window.location.href = 'modale.html'; 
             
         } catch (error) {
             alert('Erreur de connexion. Veuillez vérifier vos informations.');

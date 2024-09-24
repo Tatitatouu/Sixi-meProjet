@@ -124,15 +124,26 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
+#portfolio {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
 }
 
 /* Login part */
 
 a {
 	text-decoration: none;
+	color: black;
+    font-weight: bold;
 }
 
 * {
@@ -195,6 +206,79 @@ label[for="password"], label[for="email"] {
 	cursor: pointer;
 }
 
+/* Modale Part */
+
+.modification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5em;
+    margin-top: 2em;
+}
+
+.modification span {
+	font-family: Work Sans;
+}
+
+.modification h2 {
+    margin: 0;
+    margin-right: 20px;
+}
+
+.modifier-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modale {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.modale.active {
+    display: block;
+	border-radius: 0.5em;
+}
+
+.modale-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modale-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modifier-btn {
+    display: flex;
+    align-items: center; 
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.modifier-btn img {
+    margin-right: 5px;
+    width: 16px;
+}
+
 .categories, .btn-filter {
 	display: flex;
     justify-content: center;
@@ -242,6 +326,7 @@ margin: auto;
 }
 #contact h2{
 	margin-bottom: 20px;
+	margin-top: 3em;
 }
 #contact form {
 	text-align: left;
