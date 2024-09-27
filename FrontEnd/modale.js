@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const addPhotoView = document.getElementById('addPhotoView');
     const imgInput = document.getElementById('photo-upload');
     const btnSubmit = document.getElementById('btn-submit');
+    const btnEdition = document.getElementById('editionBanner');
 
     openModaleBtn.addEventListener('click', function() {
         modale.classList.add('active');
@@ -53,8 +54,20 @@ document.addEventListener('DOMContentLoaded', function() {
         displayWorksInModale();
     });
 
+    btnEdition.addEventListener('click', function(){
+        modale.classList.add('active');
+        galleryView.style.display = 'block';
+        addPhotoView.style.display = 'none';
+        displayWorksInModale();
+    });
+
     closeModaleBtn.addEventListener('click', function() {
         modale.classList.remove('active');
+        const imgPreview = document.getElementById('preview-image');
+        imgPreview.src = '';
+        imgPreview.style.display = 'none'; 
+        imgPreview.style.display = 'none';
+        document.querySelector('.upload-label').style.display = 'block';
         clearCategories();
     });
 
@@ -136,6 +149,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === modale) {
             modale.classList.remove('active');
             clearCategories();
+            const imgPreview = document.getElementById('preview-image');
+            imgPreview.src = '';
+            imgPreview.style.display = 'none'; 
+            imgPreview.style.display = 'none';
+            document.querySelector('.upload-label').style.display = 'block';
         }
     });
     

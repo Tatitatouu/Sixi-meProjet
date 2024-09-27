@@ -142,6 +142,36 @@ li:hover {
 	text-align: center;
 }
 
+/* Bannière modif */
+
+.edition-banner {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edition-banner img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(56deg) brightness(100%) contrast(107%);
+    cursor: pointer;
+  }
+  
+  .edition-banner span {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14px;
+  }
+
 /* Login part */
 
 a {
@@ -289,7 +319,7 @@ label[for="password"], label[for="email"] {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    padding: 2em;
+    padding: 0 1.5em 0 1.5em;
 }
 
 .gallery-container img {
@@ -388,7 +418,10 @@ label[for="password"], label[for="email"] {
 }
 
 .delete-btn {
-    position: absolute;
+    display: flex;
+    position: relative;
+    top: -100px;
+    right: -55px;
     border: none;
     cursor: pointer;
     width: 30px;
@@ -401,7 +434,7 @@ label[for="password"], label[for="email"] {
 	margin: 2em 0 3em 0;    
 	gap: 10px;
 }
-.categories h4, .btn-filter {
+.categories .category-item-btn, .btn-filter {
 	border: 1px solid #1D6154;
     color: #1D6154;
     text-align: center;
@@ -416,8 +449,13 @@ label[for="password"], label[for="email"] {
     border-radius: 60px;
 }
 
-.categories h4:hover {
+.categories .category-item-btn:hover {
 	background-color: #1D6154;
+    color: white;
+}
+
+.categories .category-item-btn.active {
+    background-color: #1D6154;
     color: white;
 }
 
