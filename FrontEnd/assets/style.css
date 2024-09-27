@@ -23,7 +23,9 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -46,7 +48,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 /** end reset css**/
+
 body {
 	max-width: 1140px;
 	margin:auto;
@@ -213,7 +217,7 @@ label[for="password"], label[for="email"] {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 5em;
+    margin-bottom: 4em;
     margin-top: 2em;
 }
 
@@ -238,35 +242,77 @@ label[for="password"], label[for="email"] {
 .modale {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 1000;
 }
 
 .modale.active {
-    display: block;
-	border-radius: 0.5em;
-}
-
-.modale-container {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.modale-container button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
+.modale-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 630px;
+    height: 670px;
+	position: relative;
+}
+.modale-container h3 {
+	text-align: center;
+	font-size: 24px;
+	margin: 1.5em;
+
+}
+.close-modale {
+    float: right;
+    font-size: 24px;
     cursor: pointer;
+    background: none;
+    border: none;
 }
 
+#title-modale {
+	font-size: 25px;
+    text-align: center;
+    margin: 1.5em 0 1.5em 0;
+
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 2em;
+}
+
+.gallery-container img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+
+.btn-add-photo {
+    display: block;
+    width: 200px;
+    margin: 3em auto;
+    padding: 10px 20px;
+    background-color: #1D6154;
+    color: white;
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    font-family: 'Syne';
+    font-weight: 700;
+	font-size: 15px;
+	width: 40%;
+}
 .modifier-btn {
     display: flex;
     align-items: center; 
@@ -279,10 +325,80 @@ label[for="password"], label[for="email"] {
     width: 16px;
 }
 
+/* Bouton retour */
+
+#backBtn {
+    background-color: transparent;
+    border: none;
+	padding-top: 9px;
+    cursor: pointer;
+}
+
+#backBtn:hover {
+    color: #B1663C;
+}
+
+#backBtn img {
+    width: 17px;
+}
+
+#addPhotoView h3 {
+    font-family: 'Syne';
+    font-size: 24px;
+	margin: 0 1.5em 0 1.5em;
+    color: black;
+	text-align: center;
+
+}
+
+#addPhotoForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#addPhotoForm input[type="text"],
+#addPhotoForm select {
+    width: 420px;
+	height: 51px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+#addPhotoForm .btn-submit {
+    background-color: #1D6154;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Syne';
+    font-weight: 700;
+	width: 40%;
+}
+
+#addPhotoForm .btn-submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.delete-btn {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+	background-color: transparent;
+}
+
 .categories, .btn-filter {
 	display: flex;
     justify-content: center;
-	margin: 3em 0 3em 0;    
+	margin: 2em 0 3em 0;    
 	gap: 10px;
 }
 .categories h4, .btn-filter {
@@ -304,6 +420,12 @@ label[for="password"], label[for="email"] {
 	background-color: #1D6154;
     color: white;
 }
+
+.separateur {
+	border-bottom: 1.5px solid #e0e0e0; 
+	margin: 15px auto; 
+	width: 80%
+  }
 .gallery {
 	width: 100%;
 	display: grid;
@@ -316,6 +438,12 @@ label[for="password"], label[for="email"] {
 	width: 100%;
 
 }
+
+#addPhotoView {
+	display: none;
+}
+
+
 #contact {
 	width: 50%;
 margin: auto;
@@ -366,3 +494,76 @@ footer nav ul {
 	margin: 2em
 }
 
+/* Conteneur de la prévisualisation d'image */
+
+.photo-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.upload-label {
+    cursor: pointer;
+}
+
+.upload-box {
+    width: 420px;
+    height: 169px;
+    background-color: #E8F1F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	border-radius: 3px;
+}
+
+.upload-box img#photoIcon {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+.upload-box img#preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 8px;
+}
+
+.upload-box img {
+    width: 50px; 
+    margin-bottom: 10px;
+}
+
+.upload-box p,
+.upload-box span {
+    text-align: center;
+    color: #777;
+}
+
+.upload-box span {
+    font-size: 12px;
+    color: #6c757d; 
+    margin-top: 5px;
+}
+
+#preview-container {
+    display: none;
+}
+
+#preview-image {
+    width: 420px;
+    height: 169px;
+    border: 1px #E8F1F6;
+    background-color: #E8F1F6;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+#photo-upload {
+    display: none;
+}

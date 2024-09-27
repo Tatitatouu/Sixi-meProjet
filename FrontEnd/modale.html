@@ -10,8 +10,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
-	<script src="script.js" defer></script>
-    <script src="modale.js" defer></script>
+	<script src="modale.js" defer></script>
 </head>
 <body>
 <header>
@@ -40,11 +39,45 @@
 		</article>
 	</section>
     <aside id="modale" class="modale" aria-hidden="true" role="dialog">
-        <div class="modale-container">
-            <h1 id="title-modale">Galerie photo</h1>
-            <button id="closeModale">Fermer</button>
-        </div>
-    </aside>
+		<div class="modale-container">
+			<button id="closeModale" class="close-modale">x</button>
+			<div id="galleryView">
+				<h3>Galerie photo</h3>
+				<div class="gallery-container"></div>
+				<div class="separateur"></div>
+				<button id="addPhotoBtn" class="btn-add-photo">Ajouter une photo</button>
+			</div>
+			<div id="addPhotoView">
+				<button id="backBtn">
+					<img src="./assets/icons/fleche-gauche.png" alt="Flèche retour">
+				</button>
+				<h3>Ajout photo</h3>
+				<form id="addPhotoForm">
+					<div class="photo-upload-container">
+						<label for="photo-upload" class="upload-label">
+							<div class="upload-box">
+								<img src="./assets/icons/picture-photo-image-svgrepo-com.svg" alt="Ajout photo" id="photoIcon">
+								<p>+ Ajouter photo</p>
+								<span>jpg, png : 4mo max</span>
+							</div>
+						</label>
+						<input type="file" id="photo-upload" accept="image/png, image/jpeg">
+					</div>
+					<div id="preview-container" class="preview-container" >
+						<img id="preview-image" alt="Prévisualisation de l'image">
+					</div>
+					<label for="title">Titre</label>
+					<input type="text" id="title" required>
+					<label for="category">Catégorie</label>
+					<select id="category" required>
+						<option disabled selected value></option>
+					</select>
+					<div class="separateur"></div>
+					<button type="submit" id="btn-submit" class="btn-submit">Valider</button>
+				</form>
+			</div>
+		</div>
+	</aside>
 	<section id="portfolio">
         <div class="modification">
             <h2>Mes projets</h2>
@@ -53,6 +86,7 @@
                 <span>modifier</span>
             </button>
         </div>
+		<div class="categories"></div>
 		<div class="gallery"></div>
 	</section>
 	<section id="contact">
